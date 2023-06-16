@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<body>
+  
+  <form action="{% url 'signin'%}" method="post">
+    {% csrf_token %}
+    <div class="container w-50 text-center border border-white mt-3">
+      <h1 class="text-white">Sign In</h1>
+      <label for="username" class="text-white">username</label>
+      <input class="form-control" type="text" name="username" placeholder="User Name" required>
+      <label for="pass1" class="text-white">password</label>
+      <input class="form-control" type="password" name="pass1" id="" placeholder="password" required>
+      
+      <small style="color: rgb(255, 255, 255);">      
+        {% for message in messages%}
+        {{message.tags}} - {{message}}
+        {%endfor%}
+      </small><br><br>
+      
+      <button class="btn btn-success" type="submit">Sign In</button>
+      <a href="{% url 'signup'%}" class="btn btn-warning">Sign Up</a>
+      <br><br>
+    </div>
+  </form>
+
+  <script>
+    history.pushState(null, document.title, location.href);
+window.addEventListener('popstate', function (event)
+{
+  history.pushState(null, document.title, location.href);
+});
+  </script>
+  
+
+</body>
+
+{% endblock %}

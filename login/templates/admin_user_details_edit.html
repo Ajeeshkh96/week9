@@ -1,0 +1,27 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block body %}
+
+<body>
+  <div class="container w-50 text-center border border-white mt-3"><br>
+    <h1 class="text-white">User Details Update</h1><br>
+    <form action="{% url 'admin_user_details_edit'%}" method="post">
+      {% csrf_token %}
+        <input type="hidden" name="id" value="{{id}}">
+        <input class="form-control" type="text" name="username" id="" value="{{ud.username}}" required>
+        <input class="form-control" type="text" name="fname" id="" value="{{ud.first_name}}" required>
+        <input class="form-control" type="text" name="lname" id="" value="{{ud.last_name}}" required>
+        <input class="form-control" type="text" name="age" id="" value="{{ud1.age}}" required>
+        <input class="form-control" type="text" name="addr" id="" value="{{ud1.addr}}" required>
+        <input class="form-control" type="text" name="mob_no" id="" value="{{ud1.mob_no}}" required>
+        <input class="form-control" type="email" name="email" id="" value="{{ud.email}}" required>
+        <br><strong style="color: rgb(250, 4, 4);">{{msg}}</strong><br><br>
+        <button class="form-control btn btn-success" type="submit">Update</button>
+        <button class="form-control btn btn-success" type="reset">Clear</button>
+        <br>
+      </form>
+  </div>
+
+</body>
+
+{% endblock %}

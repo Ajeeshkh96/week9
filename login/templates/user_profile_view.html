@@ -1,0 +1,37 @@
+{% extends 'user_base.html' %}
+{% load static %}
+{% block body %}
+
+<body>
+
+<div class="container w-50 text-center text-white"><br>
+  <h1>My Profile</h1><br>
+
+<table class="table table-striped bg-white">
+  <thead class="bg-primary">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Age</th>
+      <th>Mobile Number</th>
+      <th>Email</th>
+    </tr>
+    
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>{{ud.first_name}} {{ud.last_name}}</td>
+      <td>{{ud1.addr}}</td>
+      <td>{{ud1.age}}</td>
+      <td>{{ud1.mob_no}}</td>
+      <td>{{ud.email}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block body %}
+
+<body>
+
+<div class="container w-50 text-center text-white"><br>
+  <h1>Admin Home</h1><br>
+  {% if user.is_authenticated %}
+  <h3>Hello {{ user.username }}</h3><br>
+  <h4>You are successfully logged in.</h4><br>
+
+  {% endif %}
+
+</div>
+<script>
+  history.pushState(null, document.title, location.href);
+  window.addEventListener('popstate', function (event)
+  {
+  history.pushState(null, document.title, location.href);
+  });
+</script>
+</body>
+
+{% endblock %}

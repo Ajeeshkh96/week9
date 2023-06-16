@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<body>
+  <div class="container w-50 text-center border border-white mt-3"><br>
+    <h1 class="text-white">Sign Up</h1><br>
+    <form action="{% url 'signup'%}" method="post">
+      {% csrf_token %}
+
+        <input class="form-control" type="text" name="username" id="" placeholder="User Name" required>
+        <input class="form-control" type="text" name="fname" id="" placeholder="First Name" required>
+        <input class="form-control" type="text" name="lname" id="" placeholder="Last Name" required>
+        <input class="form-control" type="text" name="age" id="" placeholder="Age" required>
+        <input class="form-control" type="text" name="addr" id="" placeholder="Address" required>
+        <input class="form-control" type="text" name="mob_no" id="" placeholder="Mobile Number" required>
+        <input class="form-control" type="email" name="email" id="" placeholder="Email" required>
+        <input class="form-control" type="password" name="pass1" id="" placeholder="Password" required>
+        <input class="form-control" type="password" name="pass2" id="" placeholder="Confirm Password" required>
+        <br>
+        <button class="form-control btn btn-success" type="submit">Sign Up</button>
+        <button class="form-control btn btn-warning" type="reset">Clear</button>
+
+        <br>
+      </form>
+  </div>
+
+</body>
+
+{% endblock %}

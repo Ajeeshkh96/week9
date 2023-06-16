@@ -1,0 +1,32 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block body %}
+
+<body>
+  <div class="container w-50 text-center border border-white mt-3"><br>
+    <h1 class="text-white">User Account Creation</h1><br>
+    <form action="{% url 'admin_user_details_add'%}" method="post">
+      {% csrf_token %}
+
+        <input class="form-control" type="text" name="username" id="" placeholder="User Name" required>
+        <input class="form-control" type="text" name="fname" id="" placeholder="First Name" required>
+        <input class="form-control" type="text" name="lname" id="" placeholder="Last Name" required>
+        <input class="form-control" type="text" name="age" id="" placeholder="Age" required>
+        <input class="form-control" type="text" name="addr" id="" placeholder="Address" required>
+        <input class="form-control" type="text" name="mob_no" id="" placeholder="Mobile Number" required>
+        <input class="form-control" type="email" name="email" id="" placeholder="Email" required>
+        <br>
+        <small style="color: rgb(255, 255, 255);">      
+          {% for message in messages%}
+          {{message.tags}} - {{message}}
+          {%endfor%}
+        </small><br><br>
+        <button class="form-control btn btn-success" type="submit">Submit</button>
+        <button class="form-control btn btn-warning" type="reset">Clear</button>
+        <br>
+      </form>
+  </div>
+
+</body>
+
+{% endblock %}
